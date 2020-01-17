@@ -34,7 +34,8 @@ deps = c(
   "LiblineaR",
   "pROC",
   "tidyverse",
-  "yaml"
+  "yaml",
+  "e1071"
 )
 
 for (dep in deps) {
