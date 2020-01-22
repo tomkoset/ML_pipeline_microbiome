@@ -1,0 +1,34 @@
+Package: mikRopML
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.1
+Authors@R: 
+    c(person(given = "Begüm",
+           family = "Topçuoğlu",
+           role = c("aut"),
+           email = "begumtop@umich.edu",
+           comment = c(ORCID = "YOUR-ORCID-ID")
+           ),
+    person(given = "Pat",
+           family = "Schloss",
+           role = c("aut", "cre"),
+           email = "pschloss@umich.edu",
+           comment = c(ORCID = "YOUR-ORCID-ID")
+           )
+    )
+Description: What the package does (one paragraph).
+License: MIT
+Encoding: UTF-8
+LazyData: true
+imports:
+  base,
+  caret,
+  docopt,
+  kernlab,
+  LiblineaR,
+  pROC,
+  randomForest,
+  rpart,
+  tictoc,
+  tidyverse,
+  xgboost,
+  yaml
