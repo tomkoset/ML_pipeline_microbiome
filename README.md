@@ -32,6 +32,8 @@ This pipeline depends on [R version >=3.5.3](https://www.r-project.org/) and the
 - pROC
 - tidyverse
 - yaml
+- Hmisc
+- RcmdrMisc
 
 You can install them with [`install.packages`](https://cran.r-project.org/doc/manuals/r-release/R-admin.html#Installing-packages) or your preferred package manager.
 
@@ -80,21 +82,21 @@ Rscript code/R/main.R --seed 1 --permutation --model L2_Logistic_Regression --da
 	|- README.md       	# the top level description of content (this doc)
 	|- CONTRIBUTING.md	# instructions for how to contribute to your project
 	|- LICENSE.md      	# the license for this project
-  	|- ml-pipeline-microbiome.Rproj	# Rstudio project file  
-  	|  
+  	|- ml-pipeline-microbiome.Rproj	# Rstudio project file
+  	|
 	|- code/          	# any programmatic code
 	| |- R/    		# R code to build model
 	| |- bash/     		# bash scripts to prepare repo
-  	|  
+  	|
 	|- data/           	# raw and primary data, are not changed once created
 	| |- caret_models	# code for running caret (should probably in code/)
 	| |- process/     	# final combined results as .tsv and .csv files
 	| +- temp/     		# array jobs will dump all the files here.
-  	|  
+  	|
   	|- test/          	# self-contained testing repo
   	| |- code/  		# any programmatic code to prepare test load_datasets
   	| |- data/		# generated test data to run the model on
-  	|  
+  	|
 	|- config/		# conda configuration file
 
 
@@ -120,7 +122,7 @@ Specifically:
 
 2. This pipeline consists of the following scripts:
 
-	* Model and Hyperparameter Selection:`code/R/tuning_grid.R`: This function takes an optional argument to specify your own hyperparameters to be used for cross-validation (`data/default_hyperparameters.csv`). This argument should be the name of a .csv file. This file must contain three colums. The first column "param" should contain the name of the parameter, the second column should "val" contain the parameter values to be tested and the third column "model" should contain the model name. If `data/default_hyperparameters.csv` file is `NULL`, then default values will be used. 
+	* Model and Hyperparameter Selection:`code/R/tuning_grid.R`: This function takes an optional argument to specify your own hyperparameters to be used for cross-validation (`data/default_hyperparameters.csv`). This argument should be the name of a .csv file. This file must contain three colums. The first column "param" should contain the name of the parameter, the second column should "val" contain the parameter values to be tested and the third column "model" should contain the model name. If `data/default_hyperparameters.csv` file is `NULL`, then default values will be used.
 
 	* Preprocessing and splitting the dataset 80-20 to train the model: `code/R/model_pipeline.R`
 
@@ -139,7 +141,7 @@ Specifically:
 
 	`Rscript code/R/main.R --seed 100 --permutation --model L2_Logistic_Regression --data test/data/small_input_data.csv --hyperparams test/data/hyperparams.csv --outcome dx`
 
-  B) Run it parallelized for each datasplit (seed). We do this in our High Performing Computer (Great Lakes) by submitting an array job where the seed is automatically assigned [0-100] and each script is submitted at the same time - an example is present in the `code/slurm/L2_Logistic_Regression.sh` script. 
+  B) Run it parallelized for each datasplit (seed). We do this in our High Performing Computer (Great Lakes) by submitting an array job where the seed is automatically assigned [0-100] and each script is submitted at the same time - an example is present in the `code/slurm/L2_Logistic_Regression.sh` script.
 
 
 7. After we run the pipeline 100 times, we will have saved 100 files for AUROC values, 100 files for training times, 100 files for AUROC values for each tuned hyperparameter, 100 files for feature importances of perfectly correlated features, 100 files for feature importances of non-perfectly correlated features. These individual files will all be saved to `data/temp`. We can then merge these files and save them to `data/process`.
