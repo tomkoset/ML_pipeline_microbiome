@@ -1,4 +1,3 @@
-source("code/R/model_pipeline.R")
 ######################################################################
 # Author: Begum Topcuoglu
 # Date: 2018-12-20
