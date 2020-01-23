@@ -4,15 +4,13 @@ Version: 0.0.0.1
 Authors@R: 
     c(person(given = "Begüm",
            family = "Topçuoğlu",
-           role = c("aut"),
-           email = "begumtop@umich.edu",
-           comment = c(ORCID = "YOUR-ORCID-ID")
+           role = c("aut", "cre"),
+           email = "begumtop@umich.edu"
            ),
     person(given = "Pat",
            family = "Schloss",
-           role = c("aut", "cre"),
-           email = "pschloss@umich.edu",
-           comment = c(ORCID = "YOUR-ORCID-ID")
+           role = c("aut"),
+           email = "pschloss@umich.edu"
            )
     )
 Description: What the package does (one paragraph).
