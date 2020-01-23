@@ -88,6 +88,7 @@ run_model <-
             write_csv(path=paste0("data/temp/all_hp_results_", model,"_", seed, ".csv"))
         # ------------------------------------------------------------------
 
+        # Right now, this runs on Great Lakes but not locally...giving an error.
         # Save sensitivity and specificity for 0.5 threshold for each datasplit
 
         #threshold_results <- matrix(c(results[[7]], results[[8]]), ncol=2, dimnames = list(c("values"), c("sens", "spec")))
