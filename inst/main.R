@@ -23,31 +23,14 @@ Options
 
 ' -> doc
 
-deps = c(
-  "docopt",
-  "tictoc",
-  "caret" ,
-  "rpart",
-  "xgboost",
-  "randomForest",
-  "kernlab",
-  "LiblineaR",
-  "pROC",
-  "tidyverse",
-  "yaml"
-)
+require(mikRopML)
 
-for (dep in deps) {
-  library(dep, character.only = TRUE)
-}
-
-args <- docopt(doc)
+args <- docopt::docopt(doc)
 if ("configfile" %in% names(args) & !is.null(args$configfile)) {
-  args <- read_yaml(args$configfile)
+  args <- yaml::read_yaml(args$configfile)
 }
 
-source("code/R/run_model.R")
-run_model(
+mikRopML::run_model(
   args$seed,
   args$model,
   args$data,
