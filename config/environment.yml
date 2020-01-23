@@ -1,4 +1,4 @@
-name: ml
+name: mikRopML
 channels:
   - r
 dependencies:
