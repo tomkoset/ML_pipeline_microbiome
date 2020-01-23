@@ -23,8 +23,6 @@ Options
 
 ' -> doc
 
-require(mikRopML)
-
 args <- docopt::docopt(doc)
 if ("configfile" %in% names(args) & !is.null(args$configfile)) {
   args <- yaml::read_yaml(args$configfile)
