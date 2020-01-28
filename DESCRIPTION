@@ -17,7 +17,7 @@ Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-imports:
+Imports:
   base,
   caret,
   kernlab,
@@ -28,7 +28,7 @@ imports:
   tictoc,
   tidyverse,
   xgboost
-suggests:
+Suggests:
   devtools,
   docopt,
   roxygen2,
