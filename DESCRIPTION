@@ -18,16 +18,17 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
-  base,
-  caret,
-  kernlab,
-  LiblineaR,
-  pROC,
-  randomForest,
-  rpart,
-  tictoc,
-  tidyverse,
-  xgboost
+    base,
+    caret,
+    kernlab,
+    LiblineaR,
+    pROC,
+    randomForest,
+    rpart,
+    tictoc,
+    tidyverse,
+    xgboost,
+    e1071
 Suggests:
   devtools,
   docopt,
