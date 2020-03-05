@@ -4,6 +4,7 @@ channels:
   - r
 dependencies:
   - r-caret=6.0
+  - r-e1071
   - r-docopt=0.6.1
   - r-kernlab=0.9
   - r-liblinear=2.10
