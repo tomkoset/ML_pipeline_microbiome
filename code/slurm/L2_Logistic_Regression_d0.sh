@@ -7,7 +7,7 @@
 ###############################
 
 # Name
-#SBATCH --job-name=L2_logit-dn1
+#SBATCH --job-name=L2_logit-d0
 
 # Resources
 # For MPI, increase ntasks-per-node
@@ -46,5 +46,5 @@ seed=$(($SLURM_ARRAY_TASK_ID - 1))
 # Making output dir for snakemake cluster logs
 mkdir -p logs/slurm/
 
-Rscript code/R/main.R --seed $seed --model L2_Logistic_Regression --data  test/data/classification_input_day-1_data.csv --hyperparams test/data/hyperparams.csv --outcome dx
-bash code/bash/dn1_cat_csv_files.sh
+Rscript code/R/main.R --seed $seed --model L2_Logistic_Regression --data  test/data/classification_input_day0_data.csv --hyperparams test/data/hyperparams.csv --outcome dx
+bash code/bash/d0_cat_csv_files.sh
