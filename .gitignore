@@ -3,3 +3,9 @@ data/temp/*
 *.Rproj
 *.Rproj.user
 .Rproj.user
+
+env/*/*/*/*/*
+env/*
+env/*/*
+env/*/*/*
+env/*/*/*/*
