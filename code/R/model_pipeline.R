@@ -72,10 +72,10 @@ pipeline <- function(data, model, split_number, outcome=NA, hyperparameters=NULL
   print(paste(c('first outcome:','second outcome:'),c(first_outcome,second_outcome)))
 
 
-  # ------------------80-20 Datasplit for each seed------------------------->
-  # Do the 80-20 data-split
-  # Stratified data partitioning %80 training - %20 testing
-  inTraining <- createDataPartition(dataTransformed[,outcome], p = .80, list = FALSE)
+  # ------------------50-50 Datasplit for each seed------------------------->
+  # Do the 50-50 data-split
+  # Stratified data partitioning %50 training - %50 testing
+  inTraining <- createDataPartition(dataTransformed[,outcome], p = .50, list = FALSE)
   trainTransformed <- dataTransformed[ inTraining,]
   testTransformed  <- dataTransformed[-inTraining,]
   # ----------------------------------------------------------------------->

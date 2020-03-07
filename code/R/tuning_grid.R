@@ -55,13 +55,13 @@ tuning_grid <- function(train_data, model, outcome, hyperparameters=NULL){
 
 # -------------------------CV method definition--------------------------------------->
 # ADDED cv index to make sure
-#     1. the internal 5-folds are stratified for diagnosis classes
-#     2. Resample the dataset 100 times for 5-fold cv to get robust hp.
+#     1. the internal 2-folds are stratified for diagnosis classes
+#     2. Resample the dataset 100 times for 2-fold cv to get robust hp.
 # IN trainControl function:
 #     1. Train the model with final hp decision to use model to predict
 #     2. Return 2class summary and save predictions to calculate cvROC
 #     3. Save the predictions and class probabilities/decision values.
-  folds <- 5
+  folds <- 2
   cvIndex <- createMultiFolds(factor(train_data[,outcome]), folds, times=100)
   cv <- trainControl(method="repeatedcv",
                      number=folds,
