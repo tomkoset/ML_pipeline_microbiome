@@ -7,7 +7,7 @@
 ###############################
 
 # Name
-#SBATCH --job-name=L2_logit-dn1
+#SBATCH --job-name=combine-dn1-output
 
 # Resources
 # For MPI, increase ntasks-per-node
@@ -15,7 +15,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1
-#SBATCH --mem-per-cpu=4GB
+#SBATCH --mem-per-cpu=1GB
 #SBATCH --time=5:00:00
 
 # Account
@@ -30,13 +30,6 @@
 # Environment
 #SBATCH --export=ALL
 
-# Array
-#SBATCH --array=1-100
-
-# vector index starts at 0 so shift array by one
-
-seed=$(($SLURM_ARRAY_TASK_ID - 1))
-
 #####################
 #                   #
 #  2) Job Commands  #
@@ -46,4 +39,4 @@ seed=$(($SLURM_ARRAY_TASK_ID - 1))
 # Making output dir for snakemake cluster logs
 mkdir -p logs/slurm/
 
-Rscript code/R/main.R --seed $seed --model L2_Logistic_Regression --data  test/data/classification_input_day-1_data.csv --hyperparams test/data/hyperparams.csv --outcome dx
+bash code/bash/dn1_cat_csv_files.sh

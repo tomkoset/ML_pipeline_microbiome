@@ -47,4 +47,4 @@ seed=$(($SLURM_ARRAY_TASK_ID - 1))
 mkdir -p logs/slurm/
 
 Rscript code/R/main.R --seed $seed --model L2_Logistic_Regression --data  test/data/classification_input_day1_data.csv --hyperparams test/data/hyperparams.csv --outcome dx
-bash code/bash/d1_cat_csv_files.sh
+
