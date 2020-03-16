@@ -7,7 +7,7 @@
 ###############################
 
 # Name
-#SBATCH --job-name=combine-dn1-output
+#SBATCH --job-name=combine-d0-output
 
 # Resources
 # For MPI, increase ntasks-per-node
