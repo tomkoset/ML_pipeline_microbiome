@@ -15,7 +15,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=1
-#SBATCH --mem-per-cpu=1GB
+#SBATCH --mem-per-cpu=250m
 #SBATCH --time=5:00:00
 
 # Account
