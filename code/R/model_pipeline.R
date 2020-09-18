@@ -205,7 +205,7 @@ pipeline <- function(data, model, split_number, outcome=NA, hyperparameters=NULL
     test_auc <- test_roc$auc
 
     # Calculate sensitivity and specificity for 0.5 decision threshold.
-    p_class <- ifelse(rpartProbs$colonized > 0.5, "colonized", "not_detectable")
+    p_class <- ifelse(rpartProbs$colonized > 0.5, "colonized", "cleared")
     r <- confusionMatrix(as.factor(p_class), testTransformed$dx)
     sensitivity <- r$byClass[[1]]
     specificity <- r$byClass[[2]]
